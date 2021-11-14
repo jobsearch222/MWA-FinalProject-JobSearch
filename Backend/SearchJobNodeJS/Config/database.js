@@ -3,6 +3,7 @@ const dbString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS
 mongoose.connect(dbString,(err)=>{
     if(!err){
         console.log('Database Connected Successfully');
+        console.log('Database Connected Successfully');
     }else{
         console.log('Database Failed to connect');
         console.log('Database Failed to connect');
