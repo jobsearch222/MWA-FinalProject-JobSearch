@@ -1,17 +1,12 @@
 const express = require('express')
 const mongoose = require('mongoose');
 const cors = require('cors');
-
-
-const JobDetails = require('./models/job')
-const { checkBody} = require ('./middleware/bodycheck')
-const router = require('./routers/Jobrouter')
-// const {middlwa} =require('./middlewire/connection')
+// const JobDetails = require('./models/jobModel')
+// const employerDetails = require('./models/employerModel')
+// const jobSeekerDetails = require('./models/jobSeekerModel')
 const JobRoute = require('./routers/JobRouter');
 
 const MONGODB_URI = 'mongodb+srv://samuel:samuel@cluster0.ll7sr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-
-
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 .then(() => {
         const app = express();
@@ -25,55 +20,10 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
             console.log("Server has started on port 4444")
         });
     })
-
-
     // to verify mongoose has successfully connected to the database
 mongoose.connection.on('connected', () => {
     console.log('mongoose is connected');
 })
-
-
-
-
-
-
-
-
-
-const app = express();
-app.use(express.json())
-
-// app.use(middlwa);
-// app.use(checkBody);
-// app.use('/',router )
-
-
-
-const data = {
-    companyName: "MIU", 
-    firstName: "Samuel",
-    lastName: "Tewelde",
-    companyIndustry: "Collage",
-    companySubIndustry: "Computer Science",
-}
-
-const newPostJob = new JobDetails(data);
-
- newPostJob.save((error) =>{
-     if(error){
-         console.log('something went wrong')
-     }else{
-         console.log('data is saved')
-     }
- })
-
-app.get('/', function(req, res){
-
-
-
-    res.send('ok');
-})
-
 
 app.all('*', (req, res, next) => {
     next(new Error(`No route found`))
