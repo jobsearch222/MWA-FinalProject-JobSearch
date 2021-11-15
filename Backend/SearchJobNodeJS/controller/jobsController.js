@@ -82,7 +82,6 @@ module.exports.addJobSeeker = async (req, res) => {
     res.send({success: 1, payload: newJobSeeker});
 }
 
-
 // finding job by using companyname
 // Query was already executed: error need to come back
 module.exports.searchJob = async (req, res) =>{
@@ -105,6 +104,7 @@ module.exports.searchJob = async (req, res) =>{
                     }
                     res.status(500).send(responseObj);
                 }else if(docs.length == 0){
+                    console.log("am here")
                     responseObj = {
                         "status": "Error",
                         "msg": "job not available ",
@@ -205,4 +205,3 @@ module.exports.sortRecord = (req, res) => {
 
 
 
-    
