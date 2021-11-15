@@ -1,97 +1,92 @@
 const objectId = require('mongodb').ObjectId
-const JobDetails = require('./models/jobModel')
-const employerDetails = require('./models/employerModel')
-const jobSeekerDetails = require('./models/jobSeekerModel')
+const JobDetails = require('../models/jobModel')
+const employerDetails = require('../models/employerModel')
+const jobSeekerDetails = require('../models/jobSeekerModel')
 
 
+
+// adding employer to the Employer collection
 module.exports.addEmployer = async (req, res) => {
-    console.log(req.body);
-
+    //console.log(req.body);
     const newEmployer = new employerDetails({
-        repName: req.body.repName,
-        email: req.body.email,
-        companyName: req.body.companyName,
+        firstName:req.body.firstName,
+        lastName:req.body.lastName,
+        email:req.body.email,
         phoneNumber: req.body.phoneNumber,
-        address: {
-            state: req.body.address.state,
-            city: req.body.address.city,
-            zipode: req.body.address.zipode,
-            street: req.body.address.street,
-            location:req.body.address.location,
-        },
-        jobs: req.body.jobs  //newPostJob._id
+        companyName: req.body.companyName,
+        roleInCompany:req.body.roleInCompany
     })
     await newEmployer.save((error)=>{
          if(error){
-         console.log('something went wrong')
+         console.log('something went wrong in addEmployer function')
      }else{
          console.log('data is saved')
      }
     });
     res.send({success: 1, payload: newEmployer});
-
-
 }
 
+// adding job details to the jobs collection
+module.exports.addJob = async (req, res) => {
+    console.log(req.body);
+    const newJob = new JobDetails({
+
+    companyName: req.body.companyName,
+    companyLocation: req.body.companyLocation,
+    jobTitle: req.body.jobTitle,
+    JobWorkingSituation: req.body.JobWorkingSituation, // remote,temporary remote, or office
+    jobTypeTime:req.body.jobTypeTime, // fulltime, parttime, contract, temporary, internship
+    numberOfhiresPerRole: req.body.numberOfhiresPerRole,// how many people the company needs to hire
+    jobShift: req.body.jobShift, // 8 hour, 12 hour, 10 hour, day shift, night shift and monday to friday
+    salary:req.body.salary,
+    experienceLevel:req.body.experienceLevel, // Entry level, Mid level, Expert level
+    jobDescription:req.body.jobDescription,
+    postedDate: req.body.postedDate,
+    deadLine: req.body.deadLine,
+    address: {
+        state: req.body.address.state,
+        city: req.body.address.city,
+        zipode: req.body.address.zipode,
+        street: req.body.address.street,
+        location: req.body.address.location.coordinates
+    },
+    benefits:req.body.benefits //Health insurance, Dental insurance, 401(k),Flexible spending account,Paid time off, Vision insurance, Life insurance 
  
+    })
+    await newJob.save((error)=>{
+         if(error){
+         console.log('Something went wrong in addJob function')
+     }else{
+         console.log('data is saved in job collection')
+     }
+    });
+    res.send({success: 1, payload: newJob});
+}
 
-// // data about the job
-// const jobdata = {
-//     title: "Bank of Eritrea",
-//     postion: "Human Resources",
-//     category: ["null", "other null", "third null"],
-//     jobType:["Java Developer"],
-//     salary:120000,
-//     requirement:"Angular and spring knowledge",
-//     experience:4,
-//     jobDescription:"full time job at califorina downtown",
-//     deadLine:12/11/2021,
-//     benefits:"bonus if hired",
-//     // EmpRepresentative:newEmployer._id
-
-// }
-// // inserting data to job collection
-// const newPostJob = new JobDetails(jobdata);
-
-//  newPostJob.save((error) =>{
-//      if(error){
-//          console.log('something went wrong')
-//      }else{
-//          console.log('data is saved')
-//      }
-//  })
-
-
-
-
-
+// adding jobseeker details to the jobseeker collection
+module.exports.addJobSeeker = async (req, res) => {
+    console.log(req.body);
+    const newJobSeeker = new jobSeekerDetails({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email:req.body.email,
+        password:req.body.password
+    })
+    await newJobSeeker.save((error)=>{
+         if(error){
+         console.log('Something went wrong in addJobSeeker function')
+     }else{
+         console.log('data is saved in jobSeeker collection')
+     }
+    });
+    res.send({success: 1, payload: newJobSeeker});
+}
 
 
-
-
-
-// module.exports.addJob = async (req, res) => {
-//     console.log(req.body);
-//     const course = new Course({
-//         name: req.body.name,
-//         code: req.body.code,
-//     })
-//     await course.save();
-//     res.send({ success: 1, payload: course });
-
-// }
-
-// module.exports.addJobSeeker= async (req, res) => {
-//     console.log(req.body);
-//     const course = new Course({
-//         name: req.body.name,
-//         code: req.body.code,
-//     })
-//     await course.save();
-//     res.send({ success: 1, payload: course });
-
-// }
-
+module.exports.filterOut = async (req, res) =>{
+    console.log(req.body);
+    
+}
 
 
 

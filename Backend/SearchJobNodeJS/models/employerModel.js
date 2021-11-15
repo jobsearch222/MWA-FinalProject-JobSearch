@@ -2,29 +2,30 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const employeerSchema = new Schema({
-    repName: String,
-    email: String,
+    firstName:{
+        type: String,
+        required: true
+    },
+    lastName:{
+        type: String,
+        required: true
+    },
+    email:{
+        type: String,
+        required: true
+    },
+    phoneNumber: {
+        type: Number,
+        required: true
+    },
     companyName: {
         type: String,
         required: true
     },
-    phoneNumber: Number,
-    address: {
-        state: String,
-        city: String,
-        zipode: Number,
-        street: String,
-        location: {
-            coordinates: {
-                type: [Number],
-                index: "2dsphere"
-            }
-        }
-    },
-    jobs:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Job'
-    }]
-});
+    roleInCompany:{
+        type: String
+    }
+
+    });
 
 module.exports = mongoose.model("Employeer",employeerSchema,"employeers");

@@ -18,11 +18,22 @@ const jobSchema = new Schema({
         default:Date.now()
     },
     deadLine:Date,
+    address: {
+        state: String,
+        city: String,
+        zipode: Number,
+        street: String,
+        location: {
+            coordinates: {
+                type: [Number],
+                index: "2dsphere"
+            }
+        },
     benefits:[String], //Health insurance, Dental insurance, 401(k),Flexible spending account,Paid time off, Vision insurance, Life insurance 
  
     // EmpRepresentative:[{
     //     type:mongoose.Schema.Types.ObjectId,
     //     ref:'Employeer'
     // }]
-});
+}});
 module.exports=mongoose.model("Job",jobSchema,"jobs");
