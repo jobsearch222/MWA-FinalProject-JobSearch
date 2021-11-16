@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { EmployerAddJobDetailsPageComponent } from './employer-add-job-details-page/employer-add-job-details-page.component';
 import { EmployerAddEmpDetailsPageComponent } from './employer_add_empDetails_page/employer-add-emp-details-page.component';
 import { JobInfoPageComponent } from './job-info-page/job-info-page.component';
@@ -30,12 +31,7 @@ import { DefaultpageComponent } from './defaultpage/defaultpage.component';
     JobListPageComponent,
     NotFoundComponentComponent,
     DefaultpageComponent,
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    
   providers: [],
   bootstrap: [AppComponent]
 })
