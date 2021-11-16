@@ -1,13 +1,3 @@
-<mat-grid-list cols="4" rowHeight="100px" gutterSize ="5px">
-  <mat-grid-tile
-      *ngFor="let tile of tiles"
-      [colspan]="tile.cols"
-      [rowspan]="tile.rows"
-      [style.background]="tile.color">
-      <mat-grid-tile-header>Header</mat-grid-tile-header>
-      {{tile.text}}
-      <mat-grid-tile-footer>Footer</mat-grid-tile-footer>
 
-   
-  </mat-grid-tile>
-</mat-grid-list>
+<h1>Job Search Application</h1>
+<app-post-job></app-post-job>

@@ -11,6 +11,7 @@ import { NotFoundComponentComponent } from './not-found-component/not-found-comp
 import { RegisterPageComponent } from './register-page/register-page.component';
 
 const routes: Routes = [
+<<<<<<< Updated upstream
   {path:'',redirectTo:'MainPage',pathMatch:'full'},
   {path: 'MainPage', component: DefaultpageComponent},
   {path: 'notFound', component: NotFoundComponentComponent},
@@ -22,12 +23,18 @@ const routes: Routes = [
   {path: 'jobInfo', component: JobInfoPageComponent},
   {path: 'jobs', component: JobListPageComponent},
 
+=======
+  
+//{path: 'login', component:LoginpageComponent},
+  
+>>>>>>> Stashed changes
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+<<<<<<< Updated upstream
 export class AppRoutingModule { }
 
 // export const routingComponents=[DefaultpageComponent,
@@ -40,3 +47,9 @@ export class AppRoutingModule { }
 //                                 JobInfoPageComponent,
 //                                 JobListPageComponent
 //                               ];
+=======
+export class AppRoutingModule { 
+
+}
+
+>>>>>>> Stashed changes

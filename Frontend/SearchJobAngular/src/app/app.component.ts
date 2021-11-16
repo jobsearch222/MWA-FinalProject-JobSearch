@@ -21,8 +21,12 @@ import { Component } from '@angular/core';
   `]
 })
 export class AppComponent {
+<<<<<<< Updated upstream
 
   title = 'SearchJobAngular';
   // state
 
+=======
+  
+>>>>>>> Stashed changes
 }
