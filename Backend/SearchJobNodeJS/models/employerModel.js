@@ -25,6 +25,11 @@ const employeerSchema = new Schema({
     roleInCompany:{
         type: String
     }
+    // ,
+    // password: {
+    //     type: String,
+    //     required: true,
+    // },
 
     });
 

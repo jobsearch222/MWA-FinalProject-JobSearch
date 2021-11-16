@@ -17,7 +17,6 @@ import { DefaultpageComponent } from './defaultpage/defaultpage.component';
   declarations: [
     // main component
     AppComponent,
-
     //authentication pages
     RegisterPageComponent,
     LoginPageComponent,
