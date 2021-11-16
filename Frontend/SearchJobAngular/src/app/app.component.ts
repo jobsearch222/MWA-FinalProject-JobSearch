@@ -2,14 +2,27 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+  <h1> Main component {{title}}</h1>
+  <app-employer-add-emp-details-page></app-employer-add-emp-details-page>
+  <app-employer-add-job-details-page></app-employer-add-job-details-page>
+  <app-job-info-page></app-job-info-page>
+  <app-job-list-page></app-job-list-page>
+  <app-job-seeker-add></app-job-seeker-add>
+  <app-login-page></app-login-page>
+  <app-not-found-component></app-not-found-component>
+  <app-register-page></app-register-page>
+
+  `,
+  styles: [`
+  h1{
+    color: green;
+  }
+  `]
 })
 export class AppComponent {
-  tiles=[
-    {text: 'Searchbar', cols: 3, rows: 2, color: 'lightblue'},
-    {text: 'Recent Jobs', cols: 1, rows: 6, color: 'lightgreen'},
-    {text: 'Job Search Result', cols: 1, rows: 7, color: 'lightpink'},
-    {text: 'Job Details', cols: 2, rows: 7, color: '#DDBDF1'},
-  ];
+
+  title = 'SearchJobAngular';
+  // state
+
 }
