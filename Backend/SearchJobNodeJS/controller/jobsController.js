@@ -203,5 +203,3 @@ module.exports.sortRecord = (req, res) => {
         }
     }
 
-
-

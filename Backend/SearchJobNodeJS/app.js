@@ -1,3 +1,4 @@
+
 const express = require('express')
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -45,4 +46,5 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
     // to verify mongoose has successfully connected to the database
 mongoose.connection.on('connected', () => {
     console.log('mongoose is connected');
+
 })

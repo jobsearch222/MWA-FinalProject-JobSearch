@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 const controllers = require('../controller/auth.controller');
 
 router.post('/login/jobSeeker', controllers.employerLogin);
