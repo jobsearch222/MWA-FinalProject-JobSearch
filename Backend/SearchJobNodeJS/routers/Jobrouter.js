@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router()
-const { addEmployer, addJob, addJobSeeker, sortRecord, searchJob, paginationRecord, filterOut, handleJobFindOne ,handleJobSearch} = require('../controller/jobsController')
+const { addEmployer, addJob, fetchAllJobs,addJobSeeker, sortRecord, searchJob, paginationRecord, filterOut, handleJobFindOne ,handleJobSearch} = require('../controller/jobsController')
 
-
+router.get('/jobs', fetchAllJobs);
 router.post('/add/Employer',addEmployer); // accessible by employer when adding his/her detials
 router.post('/add/JobDetails',addJob) // accessible by employer when adding job details
 router.post('/add/JobSeekers', addJobSeeker) // accessible by jobSeeker when looking for a job

@@ -2,7 +2,13 @@ const objectId = require('mongodb').ObjectId
 const JobDetails = require('../models/jobModel')
 const employerDetails = require('../models/employerModel')
 const jobSeekerDetails = require('../models/jobSeekerModel')
+const Jobs= require('../models/jobModel')
 
+
+module.exports.fetchAllJobs = async (req, res) => {
+    let jobs = await Jobs.find();
+    res.json({ success: 1, payload: jobs });
+}
 
 
 // adding employer to the Employer collection

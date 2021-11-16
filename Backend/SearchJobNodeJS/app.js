@@ -16,7 +16,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
         app.use(cors());
         app.use(express.json());
         app.use(express.urlencoded({ extended: false }));
-        app.use('/Job', JobRoute)
+        app.use('/', JobRoute)
         app.all('*', (req, res, next) => {
             next(new Error(`No route found`))
         })
